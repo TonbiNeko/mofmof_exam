@@ -10,7 +10,7 @@ class PropertiesController < ApplicationController
   # GET /properties/1
   # GET /properties/1.json
   def show
-    2.times { @nearest_stations = @property.nearest_stations }
+    @nearest_stations = @property.nearest_stations
   end
 
   # GET /properties/new
@@ -21,6 +21,11 @@ class PropertiesController < ApplicationController
 
   # GET /properties/1/edit
   def edit
+    if @property.nearest_stations.blank?
+      2.times { @property.nearest_stations.build }
+    elsif @property.nearest_stations.count >= 1
+      @property.nearest_stations.build
+    end
   end
 
   # POST /properties
@@ -83,6 +88,7 @@ class PropertiesController < ApplicationController
         :walking_time,
         :property_id,
         :id,
+        :_destroy,
       ],
     )
   end

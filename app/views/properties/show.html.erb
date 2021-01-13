@@ -26,9 +26,8 @@
 </p>
 <hr>
 
-<% if @nearest_stations.present? %>
-<% @nearest_stations.each do |nearest_station| %>
-  <% if @property.nearest_stations.any? %>
+<% @nearest_stations.each do | nearest_station | %>
+  <% if @nearest_stations.any? %>
     <h2>最寄駅</h2>
     <p>
       <strong>路線名</strong>
@@ -47,7 +46,7 @@
     <br>
   <% end %>
 <% end %>
-<% end %>
 
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>
+
+<%= link_to '編集する', edit_property_path(@property) %>
+<%= link_to '戻る', properties_path %>
