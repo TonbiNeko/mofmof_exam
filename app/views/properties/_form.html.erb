@@ -55,6 +55,10 @@
       <%= nearest_station.label :徒歩分数 %>
       <%=nearest_station.text_field :walking_time %>分
     </div>
+    
+    <div>
+      <p>最寄駅を削除<%= nearest_station.check_box :_destroy, data: { confirm: '本当に削除してよろしいですか' }%></p>
+    </div>
   <% end %>
   <div class="actions">
     <%= form.submit button_text  %>
