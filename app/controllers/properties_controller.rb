@@ -23,6 +23,8 @@ class PropertiesController < ApplicationController
   def edit
     if @property.nearest_stations.blank?
       2.times { @property.nearest_stations.build }
+      @nearest_stations = @property.nearest_stations
+      
     elsif @property.nearest_stations.count >= 1
       @property.nearest_stations.build
     end

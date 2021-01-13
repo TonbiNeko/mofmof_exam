@@ -18,13 +18,13 @@
     <% @properties.each do |property| %>
       <tr>
         <td><%= property.name %></td>
-        <td><%= property.rent %>円</td>
+        <td><%= converting_to_jpy(property.rent) %></td>
         <td><%= property.address %></td>
         <td><%= property.age %>年</td>
         <td><%= property.remarks %></td>
         <td><%= link_to '詳細', property %></td>
         <td><%= link_to '編集', edit_property_path(property) %></td>
-        <td><%= link_to '削除', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '削除', property, method: :delete, data: { confirm: '削除してよろしいですか？' } %></td>
       </tr>
     <% end %>
   </tbody>
