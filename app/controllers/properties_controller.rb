@@ -24,7 +24,7 @@ class PropertiesController < ApplicationController
     if @property.nearest_stations.blank?
       2.times { @property.nearest_stations.build }
       @nearest_stations = @property.nearest_stations
-      
+
     elsif @property.nearest_stations.count >= 1
       @property.nearest_stations.build
     end
@@ -34,7 +34,6 @@ class PropertiesController < ApplicationController
   # POST /properties.json
   def create
     @property = Property.new(property_params)
-
     respond_to do |format|
       if @property.save
         format.html { redirect_to @property, notice: '物件を登録しました' }
