@@ -55,7 +55,7 @@
       <%= nearest_station.label :徒歩分数 %>
       <%= nearest_station.text_field :walking_time %>分
     </div>
-    <% if @nearest_stations.blank? %>
+    <% if @property.nearest_stations.any? %>
       <div>
         <p>最寄駅を削除<%= nearest_station.check_box :_destroy, data: { confirm: '削除してよろしいですか' }%></p>
       </div>
