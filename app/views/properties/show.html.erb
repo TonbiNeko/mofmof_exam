@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>物件名:</strong>
+  <%= @property.name %>
+</p>
+<br>
+<p>
+  <strong>賃料:</strong>
+  <%= converting_to_jpy(@property.rent) %>
+</p>
+<br>
+<p>
+  <strong>住所:</strong>
+  <%= @property.address %>
+</p>
+<br>
+<p>
+  <strong>築年数:</strong>
+  <%= @property.age %>
+</p>
+<br>
+<p>
+  <strong>備考:</strong>
+  <%= @property.remarks %>
+</p>
+<hr>
+
+<% if @nearest_stations.any? %>
+  <% @nearest_stations.each.with_index do | nearest_station, i | %>
+    <h2>最寄駅<%= i + 1 %></h2>
+    <p>
+      <strong>路線名</strong>
+      <%= nearest_station.train_line %>
+    </p>
+    <br>
+    <p>
+      <strong>駅名</strong>
+      <%= nearest_station.station_name %>
+    </p>
+    <br>
+    <p>
+      <strong>徒歩分数</strong>
+      <%= nearest_station.walking_time %>
+    </p>
+  <% end %>
+<% else %>
+  <h2>最寄駅を登録してください</h2>
+<% end %>
+
+<%= link_to '編集する', edit_property_path(@property) %>
+<%= link_to '戻る', properties_path %>
